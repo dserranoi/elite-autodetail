@@ -5,6 +5,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://dserranoi.github.io',
+  base: '/elite-autodetail',
   integrations: [react()],
   vite: {
     plugins: [tailwindcss()],
