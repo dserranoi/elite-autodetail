@@ -1,0 +1,97 @@
+---
+const BENEFITS = [
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>`,
+    es: { title: "Productos Premium", text: "Solo utilizamos químicos y herramientas de la más alta gama." },
+    en: { title: "Premium Products", text: "We only use the highest-grade chemicals and tools." },
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><path d="m9 11 3 3L22 4"></path></svg>`,
+    es: { title: "Técnicos Certificados", text: "Personal entrenado con cientos de horas de experiencia." },
+    en: { title: "Certified Technicians", text: "Staff trained with hundreds of hours of experience." },
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>`,
+    es: { title: "Servicio Móvil", text: "Llevamos el taller de detallado directamente a tu casa u oficina." },
+    en: { title: "Mobile Service", text: "We bring the detail shop directly to your home or office." },
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg>`,
+    es: { title: "Garantía de Satisfacción", text: "No terminamos hasta que tu auto luzca perfecto." },
+    en: { title: "Satisfaction Guarantee", text: "We don't stop until your car looks perfect." },
+  },
+];
+---
+
+<section class="py-24 bg-slate-950">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Benefits Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-32">
+      {BENEFITS.map((item) => (
+        <div class="flex flex-col items-center text-center p-6 rounded-2xl bg-gradient-to-b from-slate-900/80 to-transparent border border-white/5">
+          <div class="w-12 h-12 bg-blue-600/20 text-blue-500 rounded-full flex items-center justify-center mb-4">
+            <Fragment set:html={item.icon} />
+          </div>
+          <h4 class="text-lg font-bold text-white mb-2 lang-es">{item.es.title}</h4>
+          <p class="text-sm text-slate-400 lang-es">{item.es.text}</p>
+          <h4 class="text-lg font-bold text-white mb-2 lang-en">{item.en.title}</h4>
+          <p class="text-sm text-slate-400 lang-en">{item.en.text}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- How It Works Timeline -->
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-16">
+        <span class="lang-es">¿Cómo Funciona?</span>
+        <span class="lang-en">How Does It Work?</span>
+      </h2>
+      <div class="relative">
+        <!-- Line connector -->
+        <div class="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-900 via-blue-500 to-blue-900 -translate-y-1/2 opacity-30 z-0"></div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10">
+          <div class="text-center">
+            <div class="w-16 h-16 mx-auto bg-slate-900 border-2 border-blue-500 rounded-full flex items-center justify-center text-xl font-bold mb-6 shadow-[0_0_20px_rgba(37,99,235,0.3)]">1</div>
+            <h4 class="text-xl font-bold mb-3">
+              <span class="lang-es">Agenda tu cita</span>
+              <span class="lang-en">Schedule your appointment</span>
+            </h4>
+            <p class="text-slate-400 text-sm">
+              <span class="lang-es">Selecciona el paquete deseado y elige la fecha y hora que mejor te convenga.</span>
+              <span class="lang-en">Select the desired package and choose the date and time that works best for you.</span>
+            </p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 mx-auto bg-slate-900 border-2 border-blue-500 rounded-full flex items-center justify-center text-xl font-bold mb-6 shadow-[0_0_20px_rgba(37,99,235,0.3)]">2</div>
+            <h4 class="text-xl font-bold mb-3">
+              <span class="lang-es">Llevamos el servicio</span>
+              <span class="lang-en">We bring the service</span>
+            </h4>
+            <p class="text-slate-400 text-sm">
+              <span class="lang-es">Nuestro equipo llega a tu ubicación equipado con todo lo necesario (agua y luz).</span>
+              <span class="lang-en">Our team arrives at your location equipped with everything needed (water and power).</span>
+            </p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 mx-auto bg-blue-600 rounded-full flex items-center justify-center text-xl font-bold mb-6 shadow-[0_0_20px_rgba(37,99,235,0.6)]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 6 9 17l-5-5"></path>
+              </svg>
+            </div>
+            <h4 class="text-xl font-bold mb-3">
+              <span class="lang-es">Auto impecable</span>
+              <span class="lang-en">Impeccable car</span>
+            </h4>
+            <p class="text-slate-400 text-sm">
+              <span class="lang-es">Revisa el resultado final. Garantizamos que quedarás impresionado con el brillo.</span>
+              <span class="lang-en">Check the final result. We guarantee you'll be impressed with the shine.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

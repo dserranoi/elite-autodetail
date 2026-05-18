@@ -1,0 +1,146 @@
+---
+export interface Props {
+  calLink: string;
+}
+const { calLink } = Astro.props;
+
+const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>`;
+---
+
+<section id="pricing" class="py-24 bg-slate-950">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-5xl font-bold mb-6">
+        <span class="lang-es">Paquetes de <span class="text-blue-500">Detallado</span></span>
+        <span class="lang-en">Detailing <span class="text-blue-500">Packages</span></span>
+      </h2>
+      <p class="text-slate-400 text-lg">
+        <span class="lang-es">Transparencia total. Selecciona el nivel de cuidado que tu vehículo necesita.</span>
+        <span class="lang-en">Full transparency. Select the level of care your vehicle needs.</span>
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <!-- Basic Card -->
+      <div class="bg-slate-900 border border-white/5 rounded-3xl p-8 flex flex-col">
+        <h3 class="text-xl font-semibold text-slate-300 mb-2">Basic Wash</h3>
+        <div class="flex items-baseline gap-2 mb-6">
+          <span class="text-4xl font-bold text-white">$99</span>
+          <span class="text-slate-500">
+            <span class="lang-es">/desde</span>
+            <span class="lang-en">/from</span>
+          </span>
+        </div>
+        <p class="text-sm text-slate-400 mb-8 pb-8 border-b border-white/10">
+          <span class="lang-es">Mantenimiento mensual perfecto para mantener tu auto limpio.</span>
+          <span class="lang-en">Perfect monthly maintenance to keep your car clean.</span>
+        </p>
+        <ul class="space-y-4 mb-8 flex-grow text-sm">
+          <li class="flex items-center gap-3"><Fragment set:html={checkIcon} />
+            <span class="lang-es">Lavado exterior a mano</span>
+            <span class="lang-en">Exterior hand wash</span>
+          </li>
+          <li class="flex items-center gap-3"><Fragment set:html={checkIcon} />
+            <span class="lang-es">Limpieza de rines y llantas</span>
+            <span class="lang-en">Wheel and tire cleaning</span>
+          </li>
+          <li class="flex items-center gap-3"><Fragment set:html={checkIcon} />
+            <span class="lang-es">Aspirado interior básico</span>
+            <span class="lang-en">Basic interior vacuuming</span>
+          </li>
+          <li class="flex items-center gap-3"><Fragment set:html={checkIcon} />
+            <span class="lang-es">Limpieza de vidrios</span>
+            <span class="lang-en">Window cleaning</span>
+          </li>
+        </ul>
+        <a href={calLink} class="w-full py-4 rounded-xl border border-white/10 hover:bg-white/5 font-semibold transition-colors text-center block">
+          <span class="lang-es">Agendar Básico</span>
+          <span class="lang-en">Book Basic</span>
+        </a>
+      </div>
+
+      <!-- Premium Card (Highlighted) -->
+      <div class="bg-gradient-to-b from-blue-900/40 to-slate-900 border border-blue-500/50 rounded-3xl p-8 flex flex-col relative transform md:-translate-y-4 shadow-[0_0_30px_rgba(37,99,235,0.2)]">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white px-4 py-1 rounded-full text-xs font-bold tracking-wider uppercase">
+          <span class="lang-es">Más Popular</span>
+          <span class="lang-en">Most Popular</span>
+        </div>
+        <h3 class="text-xl font-semibold text-blue-400 mb-2">Premium Detail</h3>
+        <div class="flex items-baseline gap-2 mb-6">
+          <span class="text-4xl font-bold text-white">$250</span>
+          <span class="text-slate-500">
+            <span class="lang-es">/desde</span>
+            <span class="lang-en">/from</span>
+          </span>
+        </div>
+        <p class="text-sm text-slate-400 mb-8 pb-8 border-b border-white/10">
+          <span class="lang-es">Restauración profunda interior y protección exterior.</span>
+          <span class="lang-en">Deep interior restoration and exterior protection.</span>
+        </p>
+        <ul class="space-y-4 mb-8 flex-grow text-sm">
+          <li class="flex items-center gap-3"><Fragment set:html={checkIcon} />
+            <span class="lang-es">Todo en Basic Wash</span>
+            <span class="lang-en">Everything in Basic Wash</span>
+          </li>
+          <li class="flex items-center gap-3"><Fragment set:html={checkIcon} />
+            <span class="lang-es">Descontaminación de pintura (Clay bar)</span>
+            <span class="lang-en">Paint decontamination (Clay bar)</span>
+          </li>
+          <li class="flex items-center gap-3"><Fragment set:html={checkIcon} />
+            <span class="lang-es">Sellador de pintura (6 meses)</span>
+            <span class="lang-en">Paint sealant (6 months)</span>
+          </li>
+          <li class="flex items-center gap-3"><Fragment set:html={checkIcon} />
+            <span class="lang-es">Shampoo de asientos y alfombras</span>
+            <span class="lang-en">Seat and carpet shampooing</span>
+          </li>
+          <li class="flex items-center gap-3"><Fragment set:html={checkIcon} />
+            <span class="lang-es">Acondicionador de plásticos/piel</span>
+            <span class="lang-en">Plastic/leather conditioner</span>
+          </li>
+        </ul>
+        <a href={calLink} class="w-full py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold transition-all shadow-lg shadow-blue-500/30 text-center block">
+          <span class="lang-es">Agendar Premium</span>
+          <span class="lang-en">Book Premium</span>
+        </a>
+      </div>
+
+      <!-- Ceramic Card -->
+      <div class="bg-slate-900 border border-white/5 rounded-3xl p-8 flex flex-col">
+        <h3 class="text-xl font-semibold text-slate-300 mb-2">Ceramic Package</h3>
+        <div class="flex items-baseline gap-2 mb-6">
+          <span class="text-4xl font-bold text-white">$899</span>
+          <span class="text-slate-500">
+            <span class="lang-es">/desde</span>
+            <span class="lang-en">/from</span>
+          </span>
+        </div>
+        <p class="text-sm text-slate-400 mb-8 pb-8 border-b border-white/10">
+          <span class="lang-es">La máxima protección y brillo duradero para tu inversión.</span>
+          <span class="lang-en">Maximum protection and lasting shine for your investment.</span>
+        </p>
+        <ul class="space-y-4 mb-8 flex-grow text-sm">
+          <li class="flex items-center gap-3"><Fragment set:html={checkIcon} />
+            <span class="lang-es">Lavado y preparación intensiva</span>
+            <span class="lang-en">Intensive wash and prep</span>
+          </li>
+          <li class="flex items-center gap-3"><Fragment set:html={checkIcon} />
+            <span class="lang-es">Corrección de pintura (1 etapa)</span>
+            <span class="lang-en">Paint correction (1 stage)</span>
+          </li>
+          <li class="flex items-center gap-3"><Fragment set:html={checkIcon} />
+            Ceramic Coating (3-5 <span class="lang-es">años</span><span class="lang-en">years</span>)
+          </li>
+          <li class="flex items-center gap-3"><Fragment set:html={checkIcon} />
+            <span class="lang-es">Coating para rines (Caras)</span>
+            <span class="lang-en">Wheel face coating</span>
+          </li>
+        </ul>
+        <a href={calLink} class="w-full py-4 rounded-xl border border-white/10 hover:bg-white/5 font-semibold transition-colors text-center block">
+          <span class="lang-es">Cotizar Cerámico</span>
+          <span class="lang-en">Quote Ceramic</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

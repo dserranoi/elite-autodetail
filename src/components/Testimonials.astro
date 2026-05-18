@@ -1,0 +1,48 @@
+---
+const TESTIMONIALS = [
+  {
+    name: "Michael T.",
+    car: "Tesla Model 3",
+    es: "Increíble trabajo. Mi Tesla parece que acaba de salir de la fábrica. El ceramic coating vale cada centavo, el agua simplemente resbala.",
+    en: "Incredible work. My Tesla looks like it just came off the assembly line. The ceramic coating is worth every penny — water just slides right off.",
+  },
+  {
+    name: "Sarah J.",
+    car: "Porsche Macan",
+    es: "Muy profesionales. Vinieron a mi oficina y trabajaron sin interrumpir mi día. El interior huele a nuevo otra vez.",
+    en: "Very professional. They came to my office and worked without interrupting my day. The interior smells brand new again.",
+  },
+  {
+    name: "David R.",
+    car: "Ford F-150",
+    es: "Tenía rayones por toda la camioneta por ir de campamento. La corrección de pintura hizo magia. 100% recomendados.",
+    en: "My truck had scratches all over from camping. The paint correction worked magic. 100% recommended.",
+  },
+];
+
+const starIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#eab308" stroke="#eab308" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>`;
+---
+
+<section class="py-24 bg-slate-900 border-t border-white/5">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">
+      <span class="lang-es">Lo que dicen nuestros <span class="text-blue-500">clientes</span></span>
+      <span class="lang-en">What our <span class="text-blue-500">clients</span> say</span>
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {TESTIMONIALS.map((t) => (
+        <div class="bg-slate-950 p-8 rounded-2xl border border-white/5 relative">
+          <div class="flex text-yellow-500 mb-4">
+            <Fragment set:html={starIcon.repeat(5)} />
+          </div>
+          <p class="text-slate-300 italic mb-6 lang-es">"{t.es}"</p>
+          <p class="text-slate-300 italic mb-6 lang-en">"{t.en}"</p>
+          <div class="flex items-center justify-between border-t border-white/10 pt-4 mt-auto">
+            <span class="font-semibold text-white">{t.name}</span>
+            <span class="text-xs text-blue-400 bg-blue-500/10 px-2 py-1 rounded-md">{t.car}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
+import Benefits from '../components/Benefits.astro';
+import Gallery from '../components/Gallery.astro';
+import Pricing from '../components/Pricing.astro';
+import Testimonials from '../components/Testimonials.astro';
+import FAQ from '../components/FAQ.astro';
+import CTA from '../components/CTA.astro';
+import Footer from '../components/Footer.astro';
+
+const config = {
+  businessName: "Elite Auto Detail",
+  phone: "(555) 123-4567",
+  email: "citas@elitedetail.com",
+  location: "Los Angeles, CA",
+  hours: "Lun - Sab: 8am - 6pm",
+  whatsapp: "#",
+  calLink: "#",
+  instagram: "#",
+  facebook: "#",
+};
+---
+
+<BaseLayout>
+  <Nav businessName={config.businessName} calLink={config.calLink} />
+  <Hero calLink={config.calLink} />
+  <Services />
+  <BeforeAfter />
+  <Benefits />
+  <Gallery />
+  <Pricing calLink={config.calLink} />
+  <Testimonials />
+  <FAQ />
+  <CTA calLink={config.calLink} />
+  <Footer
+    businessName={config.businessName}
+    phone={config.phone}
+    email={config.email}
+    location={config.location}
+    hours={config.hours}
+    instagram={config.instagram}
+    facebook={config.facebook}
+  />
+</BaseLayout>

@@ -1,0 +1,125 @@
+---
+const SERVICES = [
+  {
+    icon: "droplets",
+    title: "Exterior Detail",
+    es: {
+      desc: "Lavado a mano premium, descontaminación de pintura, sellador cerámico de 6 meses y brillo de neumáticos.",
+      price: "Desde $150",
+      benefits: ["Brillo profundo", "Protección UV", "Repelencia al agua"],
+    },
+    en: {
+      desc: "Premium hand wash, paint decontamination, 6-month ceramic sealant, and tire shine.",
+      price: "From $150",
+      benefits: ["Deep shine", "UV protection", "Water repellency"],
+    },
+  },
+  {
+    icon: "sparkles",
+    title: "Interior Detailing",
+    es: {
+      desc: "Limpieza profunda de todos los paneles, aspirado exhaustivo, shampoo de asientos/alfombras y acondicionador de piel.",
+      price: "Desde $180",
+      benefits: ["Eliminación de olores", "Restauración de plásticos", "Desinfección"],
+    },
+    en: {
+      desc: "Deep cleaning of all panels, thorough vacuuming, seat/carpet shampooing, and leather conditioner.",
+      price: "From $180",
+      benefits: ["Odor elimination", "Plastic restoration", "Sanitization"],
+    },
+  },
+  {
+    icon: "shield",
+    title: "Ceramic Coating",
+    es: {
+      desc: "Protección nanométrica de grado profesional que dura años, no meses. Dureza 9H y brillo extremo tipo espejo.",
+      price: "Desde $800",
+      benefits: ["Protección de 2-5 años", "Efecto hidrofóbico", "Resistencia a rayones finos"],
+    },
+    en: {
+      desc: "Professional-grade nanometric protection that lasts years, not months. 9H hardness and extreme mirror-like gloss.",
+      price: "From $800",
+      benefits: ["2-5 year protection", "Hydrophobic effect", "Light scratch resistance"],
+    },
+  },
+  {
+    icon: "wrench",
+    title: "Paint Correction",
+    es: {
+      desc: "Eliminación de marcas circulares (swirls), rayones ligeros y oxidación mediante pulido en múltiples etapas.",
+      price: "Desde $400",
+      benefits: ["Restauración de color", "Acabado impecable", "Preparación para cerámico"],
+    },
+    en: {
+      desc: "Removal of swirl marks, light scratches, and oxidation through multi-stage polishing.",
+      price: "From $400",
+      benefits: ["Color restoration", "Flawless finish", "Ceramic prep"],
+    },
+  },
+];
+
+const icons: Record<string, string> = {
+  droplets: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"></path></svg>`,
+  sparkles: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path><path d="M5 3v4"></path><path d="M19 17v4"></path><path d="M3 5h4"></path><path d="M17 19h4"></path></svg>`,
+  shield: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg>`,
+  wrench: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>`,
+};
+---
+
+<section id="services" class="py-24 relative z-10 bg-slate-950">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl md:text-5xl font-bold mb-6">
+        <span class="lang-es">Nuestros Servicios <span class="text-blue-500">Premium</span></span>
+        <span class="lang-en">Our <span class="text-blue-500">Premium</span> Services</span>
+      </h2>
+      <p class="text-slate-400 text-lg">
+        <span class="lang-es">Soluciones integrales de detallado diseñadas para restaurar y proteger tu inversión, utilizando los químicos más avanzados del mercado.</span>
+        <span class="lang-en">Comprehensive detailing solutions designed to restore and protect your investment, using the most advanced chemicals on the market.</span>
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {SERVICES.map((service) => (
+        <div class="group bg-slate-900/50 backdrop-blur-sm border border-white/5 rounded-2xl p-8 hover:bg-slate-900 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_40px_-10px_rgba(37,99,235,0.3)] hover:border-blue-500/30">
+          <div class="w-16 h-16 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+            <Fragment set:html={icons[service.icon]} />
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-white">{service.title}</h3>
+
+          <p class="text-slate-400 text-sm mb-6 leading-relaxed min-h-[80px] lang-es">{service.es.desc}</p>
+          <p class="text-slate-400 text-sm mb-6 leading-relaxed min-h-[80px] lang-en">{service.en.desc}</p>
+
+          <ul class="space-y-2 mb-6 border-t border-white/5 pt-4">
+            {service.es.benefits.map((benefit) => (
+              <li class="lang-es flex items-center text-xs text-slate-300">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="mr-2 shrink-0">
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+                {benefit}
+              </li>
+            ))}
+            {service.en.benefits.map((benefit) => (
+              <li class="lang-en flex items-center text-xs text-slate-300">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="mr-2 shrink-0">
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+                {benefit}
+              </li>
+            ))}
+          </ul>
+
+          <div class="flex items-center justify-between mt-auto">
+            <span class="font-semibold text-blue-400 lang-es">{service.es.price}</span>
+            <span class="font-semibold text-blue-400 lang-en">{service.en.price}</span>
+            <button class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-blue-600 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m9 18 6-6-6-6"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,40 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = "Elite Auto Detail | Detallado Premium",
+  description = "Detallado premium para proteger, restaurar y hacer brillar tu vehículo.",
+} = Astro.props;
+
+import '../styles/global.css';
+---
+
+<!doctype html>
+<html lang="es" data-lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Apply saved language before body renders to prevent flash -->
+    <script is:inline>
+      (function () {
+        var lang = localStorage.getItem('lang') || 'es';
+        document.documentElement.dataset.lang = lang;
+        document.documentElement.lang = lang;
+      })();
+    </script>
+  </head>
+  <body class="min-h-screen bg-slate-950 text-slate-50 font-sans [&::selection]:bg-blue-500/30">
+    <slot />
+  </body>
+</html>

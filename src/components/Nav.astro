@@ -1,0 +1,165 @@
+---
+export interface Props {
+  businessName: string;
+  calLink: string;
+}
+const { businessName, calLink } = Astro.props;
+---
+
+<!-- Floating WhatsApp Button -->
+<a
+  href="#"
+  class="fixed bottom-6 right-6 z-50 bg-green-500 text-white p-4 rounded-full shadow-lg shadow-green-500/30 hover:-translate-y-1 transition-transform hover:scale-110 flex items-center justify-center"
+  aria-label="WhatsApp"
+>
+  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+  </svg>
+</a>
+
+<nav id="main-nav" class="fixed w-full z-40 transition-all duration-300 bg-transparent py-6">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center">
+      <!-- Logo -->
+      <div class="flex items-center gap-2">
+        <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-400 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(37,99,235,0.4)]">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path>
+          </svg>
+        </div>
+        <span class="text-xl font-bold tracking-tight text-white uppercase">
+          {businessName.replace('Detail', '')}<span class="text-blue-500">Detail</span>
+        </span>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#services" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">
+          <span class="lang-es">Servicios</span>
+          <span class="lang-en">Services</span>
+        </a>
+        <a href="#gallery" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">
+          <span class="lang-es">Galería</span>
+          <span class="lang-en">Gallery</span>
+        </a>
+        <a href="#pricing" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">
+          <span class="lang-es">Precios</span>
+          <span class="lang-en">Pricing</span>
+        </a>
+
+        <!-- Language Toggle -->
+        <div class="flex items-center gap-0.5 border border-white/20 rounded-full p-0.5 text-xs font-bold">
+          <button data-lang-btn="es" class="px-2.5 py-1 rounded-full transition-all">ES</button>
+          <button data-lang-btn="en" class="px-2.5 py-1 rounded-full transition-all">EN</button>
+        </div>
+
+        <a
+          href={calLink}
+          class="px-6 py-2.5 bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold rounded-full transition-all shadow-[0_0_15px_rgba(37,99,235,0.3)] hover:shadow-[0_0_25px_rgba(37,99,235,0.5)]"
+        >
+          <span class="lang-es">Agendar Cita</span>
+          <span class="lang-en">Book Now</span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" class="md:hidden text-slate-300" aria-label="Toggle menu">
+        <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" x2="20" y1="12" y2="12"></line>
+          <line x1="4" x2="20" y1="6" y2="6"></line>
+          <line x1="4" x2="20" y1="18" y2="18"></line>
+        </svg>
+        <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden">
+          <path d="M18 6 6 18"></path>
+          <path d="m6 6 12 12"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Dropdown -->
+  <div id="mobile-menu" class="md:hidden hidden absolute top-full left-0 w-full bg-slate-900 border-b border-white/10 p-4 flex flex-col space-y-4 shadow-xl">
+    <a href="#services" class="mobile-link text-slate-300 p-2 font-medium">
+      <span class="lang-es">Servicios</span>
+      <span class="lang-en">Services</span>
+    </a>
+    <a href="#gallery" class="mobile-link text-slate-300 p-2 font-medium">
+      <span class="lang-es">Galería</span>
+      <span class="lang-en">Gallery</span>
+    </a>
+    <a href="#pricing" class="mobile-link text-slate-300 p-2 font-medium">
+      <span class="lang-es">Precios</span>
+      <span class="lang-en">Pricing</span>
+    </a>
+
+    <!-- Language Toggle Mobile -->
+    <div class="flex items-center gap-0.5 border border-white/20 rounded-full p-0.5 text-xs font-bold self-start">
+      <button data-lang-btn="es" class="px-2.5 py-1 rounded-full transition-all">ES</button>
+      <button data-lang-btn="en" class="px-2.5 py-1 rounded-full transition-all">EN</button>
+    </div>
+
+    <a href={calLink} class="mobile-link w-full text-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg">
+      <span class="lang-es">Agendar Cita</span>
+      <span class="lang-en">Book Now</span>
+    </a>
+  </div>
+</nav>
+
+<script>
+  const nav = document.getElementById('main-nav')!;
+  const btn = document.getElementById('mobile-menu-btn')!;
+  const menu = document.getElementById('mobile-menu')!;
+  const iconMenu = document.getElementById('icon-menu')!;
+  const iconClose = document.getElementById('icon-close')!;
+
+  // Scroll effect
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      nav.classList.add('bg-slate-950/80', 'backdrop-blur-md', 'border-b', 'border-white/5', 'py-4');
+      nav.classList.remove('bg-transparent', 'py-6');
+    } else {
+      nav.classList.remove('bg-slate-950/80', 'backdrop-blur-md', 'border-b', 'border-white/5', 'py-4');
+      nav.classList.add('bg-transparent', 'py-6');
+    }
+  });
+
+  // Mobile menu toggle
+  btn.addEventListener('click', () => {
+    const isOpen = !menu.classList.contains('hidden');
+    menu.classList.toggle('hidden', isOpen);
+    iconMenu.classList.toggle('hidden', !isOpen);
+    iconClose.classList.toggle('hidden', isOpen);
+  });
+
+  // Close mobile menu on link click
+  document.querySelectorAll('.mobile-link').forEach((link) => {
+    link.addEventListener('click', () => {
+      menu.classList.add('hidden');
+      iconMenu.classList.remove('hidden');
+      iconClose.classList.add('hidden');
+    });
+  });
+
+  // Language toggle
+  function updateLangButtons(lang: string) {
+    document.querySelectorAll<HTMLButtonElement>('[data-lang-btn]').forEach((b) => {
+      const isActive = b.dataset.langBtn === lang;
+      b.classList.toggle('bg-blue-600', isActive);
+      b.classList.toggle('text-white', isActive);
+      b.classList.toggle('text-slate-400', !isActive);
+    });
+  }
+
+  const savedLang = localStorage.getItem('lang') || 'es';
+  updateLangButtons(savedLang);
+
+  document.querySelectorAll<HTMLButtonElement>('[data-lang-btn]').forEach((b) => {
+    b.addEventListener('click', () => {
+      const lang = b.dataset.langBtn!;
+      document.documentElement.dataset.lang = lang;
+      document.documentElement.lang = lang;
+      localStorage.setItem('lang', lang);
+      updateLangButtons(lang);
+    });
+  });
+</script>

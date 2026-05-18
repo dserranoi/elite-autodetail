@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Language toggle visibility */
+html[data-lang="en"] .lang-es { display: none !important; }
+html[data-lang="es"] .lang-en { display: none !important; }
